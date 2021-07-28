@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'application' // need to use variable mainClassName! will automatically add the distribution and java plugin
+    //id 'java-library-distribution'
+}
+
+group 'ru.yuldashev.learning.gradle'
+version '0.1.0'
+
+mainClassName = 'Core' // the name of the main class to be added into the Manifest file
+//application {
+//    mainClass = mainClassName
+//}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+//jar {
+//    manifest {
+//        attributes(
+//                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+//                'Main-Class': "$mainClassName"
+//        )
+//    }
+//}
+jar {
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+
+//    from {
+//        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//    }
+}
