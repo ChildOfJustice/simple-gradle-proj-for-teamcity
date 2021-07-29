@@ -197,4 +197,11 @@ object SystemTests_E2eTeamCityTestOnEc2 : BuildType({
         }
         stepsOrder = arrayListOf("RUNNER_4", "RUNNER_5309")
     }
+
+    dependencies {
+        artifacts(BuildDistTarGzWar) {
+            id = "ARTIFACT_DEPENDENCY_7010"
+            artifactRules = "TeamCity*.tar.gz=>/smoke-tests/%teamcity.distrib%"
+        }
+    }
 })
