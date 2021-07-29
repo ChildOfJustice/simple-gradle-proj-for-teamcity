@@ -191,6 +191,7 @@ object SystemTests_E2eTeamCityTestOnEc2 : BuildType({
         gradle {
             name = "Run tests"
             id = "RUNNER_5309"
+            enabled = false
             tasks = "testE2eTeamCityOnEc2"
             buildFile = "build.gradle"
             gradleParams = "--info"
