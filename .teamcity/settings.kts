@@ -186,7 +186,7 @@ object SystemTests_E2eTeamCityTestOnEc2 : BuildType({
         script {
             name = "Check artifact dependencies"
             id = "RUNNER_4"
-            scriptContent = "ls %teamcity.distrib%"
+            scriptContent = "ls /smoke-tests/%teamcity.distrib%"
         }
         gradle {
             name = "Run tests"
