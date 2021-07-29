@@ -135,6 +135,7 @@ object SystemTests_SetupTeamCityInTheAwsCloudRunTests : Template({
 
             artifacts {
                 id = "ARTIFACT_DEPENDENCY_7010"
+                buildRule = lastSuccessful()
                 artifactRules = "TeamCity*.tar.gz=>%teamcity.distrib%"
             }
         }
@@ -195,13 +196,5 @@ object SystemTests_E2eTeamCityTestOnEc2 : BuildType({
             gradleParams = "--info"
         }
         stepsOrder = arrayListOf("RUNNER_4", "RUNNER_5309")
-    }
-
-    dependencies {
-        artifacts(BuildDistTarGzWar) {
-            id = "ARTIFACT_DEPENDENCY_7010"
-            buildRule = lastSuccessful()
-            artifactRules = "TeamCity*.tar.gz=>%teamcity.distrib%"
-        }
     }
 })
