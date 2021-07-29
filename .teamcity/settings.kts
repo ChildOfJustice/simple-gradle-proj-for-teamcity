@@ -201,7 +201,7 @@ object SystemTests_E2eTeamCityTestOnEc2 : BuildType({
     dependencies {
         artifacts(BuildDistTarGzWar) {
             id = "ARTIFACT_DEPENDENCY_7010"
-            artifactRules = "TeamCity*.tar.gz=>/smoke-tests/%teamcity.distrib%"
+            artifactRules = "TeamCity*.tar.gz=>%teamcity.distrib%"
         }
     }
 })
