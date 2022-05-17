@@ -35,8 +35,6 @@ project {
     description = "Test dist"
 
     buildType(BuildDistTarGzWar)
-
-    subProject(SystemTests)
 }
 
 object BuildDistTarGzWar : BuildType({
